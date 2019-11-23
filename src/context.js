@@ -12,8 +12,21 @@ Whenever we would use the information (that comes from the Provider), we're gonn
 
 class ProductProvider extends Component {
   state = {
-    products: storeProducts,
+    products: [],
     detailProduct: detailProduct
+  };
+  componentDidMount() {
+    this.setProducts();
+  };
+  setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = {...item};
+      tempProducts = [...tempProducts, singleItem];
+    });
+    this.setState(() => {
+      return { products: tempProducts };
+    });
   };
   handleDetail = () => {
     console.log('hello from detail');
