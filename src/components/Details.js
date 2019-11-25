@@ -8,7 +8,7 @@ export default class Details extends Component {
     return (
       <ProductConsumer>
         {
-          (value) => {
+          value => {
             const { id, company, img, info, price, title, inCart } = value.detailProduct;
             return  (
               <div className="container py-5">
@@ -57,6 +57,7 @@ export default class Details extends Component {
                         onClick={
                           () => {
                             value.addToCart(id);
+                            value.openModal(id);
                           }
                         }
                       >

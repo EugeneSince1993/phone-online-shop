@@ -30,6 +30,7 @@ export default class Product extends Component {
                   onClick={
                     () => {
                       value.addToCart(id);
+                      value.openModal(id);
                     }
                   } 
                 >
